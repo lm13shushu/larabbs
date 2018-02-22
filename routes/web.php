@@ -31,3 +31,5 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // Route::get('/home', 'HomeController@index')->name('home');
+// 控制器方法传参中必须包含对应的 Eloquent 模型类型 提示，并且是有序的：
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
