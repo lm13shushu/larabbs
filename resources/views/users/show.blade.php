@@ -15,11 +15,12 @@
                     </div>
                     <div class="media-body">
                         <hr>
-                        <h4><strong>个人简介</strong></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <h4><strong>个人简介</strong></h4>
+                            <p>{{ $user->introduction }}</p>
                         <hr>
+                        <!-- 时间戳 created_at 和 updated_at 作为模型属性被调用时，都会自动转换为 Carbon 对象 -->
                         <h4><strong>注册于</strong></h4>
-                        <p>January 01 1901</p>
+                        <p>{{ $user->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
             </div>
