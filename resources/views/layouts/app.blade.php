@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<!-- 页面路由名称 -->
     <div id="app" class="{{ route_class() }}-page">
 
         @include('layouts._header')
