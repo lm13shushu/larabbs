@@ -68,9 +68,23 @@
     <script type="text/javascript"  src="{{ asset('js/simditor.js') }}"></script>
 
     <script>
+    //leaveConfirm 
+    //fileKey —— 是服务器端获取图片的键值，我们设置为 upload_file
+    //url —— 处理上传图片的 URL
+    //connectionCount —— 最多只能同时上传 3 张图片
+    //leaveConfirm —— 上传过程中，用户关闭页面时的提醒
     $(document).ready(function(){
         var editor = new Simditor({
             textarea: $('#editor'),
+            upload: {
+                url: '{{ route('topics.upload_image') }}',
+                params: { _token: '{{ csrf_token() }}' },
+                fileKey: 'upload_file',
+                connectionCount: 3,
+                leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+            },
+            //设定支持图片黏贴上传,
+            pasteImage: true,
         });
     });
     </script>
