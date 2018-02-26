@@ -33,6 +33,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 // Route::get('/home', 'HomeController@index')->name('home');
 // 控制器方法传参中必须包含对应的 Eloquent 模型类型 提示，并且是有序的：
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('topics', 'TopicsController', ['only' => ['index','create', 'store', 'update', 'edit', 'destroy']]);
+//URI 最后一个参数表达式 {slug?} ，? 意味着参数可选
+Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
