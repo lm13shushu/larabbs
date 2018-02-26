@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //有顺序之分
         $this->call(UsersTableSeeder::class);
 		$this->call(TopicsTableSeeder::class);
+        $this->call(ReplysTableSeeder::class);
     }
 }
